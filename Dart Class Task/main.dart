@@ -5,7 +5,7 @@ class empInfo{
     String? employeeDesignition;
     double? employeeSalary;
     double? employeeTax;
-    double? employeeTotalSalary
+    double? employeeTotalSalary;
     void displayEmpInfo(){
         print("Employee Name is: $employeeName");
         print("Employee DEsignition is: $employeeDesignition");
@@ -23,12 +23,12 @@ String designition = stdin.readLineSync() ?? "No designition Given";
 print("Enter Your Salary");
 double  salary = double.parse(stdin.readLineSync() ?? "33000");
 
-double? tax;
-double? totalsalary;
+  double tax = 0.0; // Initialize tax
+  double totalSalary = salary; // Initialize total salary with the full salary
 
-if(salary >= 100000 || salary <= 150000){
-  double tax = salary*10/100;
-   double totalsalary = salary - tax;
+if(salary >= 100000 && salary <= 150000){
+  tax = salary * 0.10;
+   totalSalary = salary - tax;
 }else{
     print("you are safe from tax");
 }
@@ -37,6 +37,6 @@ if(salary >= 100000 || salary <= 150000){
  employee.employeeDesignition = designition;
  employee.employeeSalary = salary;
  employee.employeeTax = tax;
- employee.employeeTotalSalary = totalsalary;
+ employee.employeeTotalSalary = totalSalary;
 employee.displayEmpInfo();
 }
